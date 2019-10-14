@@ -21,6 +21,16 @@ function App() {
       // this is a comment
       (( )){} // grouping stuff
       !*+-/=<> <= == // operators
+      /*some multi
+      line comment, and it might 
+      contain * or **
+
+      lw
+
+
+      */=
+      class {
+      }
       `)}
       </code>
     </div>

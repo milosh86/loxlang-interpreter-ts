@@ -115,6 +115,26 @@ export default class Scanner {
           while (this.peek() !== "\n" && !this.isAtEnd()) {
             this.advance();
           }
+        } else if (this.match("*")) {
+          // multiline comment
+          while (
+            (this.peek() !== "*" || this.peekNext() !== "/") &&
+            !this.isAtEnd()
+          ) {
+            if (this.peek() === "\n") this.line++;
+            this.advance();
+          }
+
+          if (this.isAtEnd()) {
+            errorReporter.error(this.line, "Unterminated comment.");
+            return;
+          }
+
+          // The closing "*" and "/"
+          this.advance();
+          this.advance();
+
+          // emits no token!
         } else {
           this.addToken(TokenType.SLASH, null);
         }
