@@ -1,0 +1,14 @@
+Rules of grammar are called "productions", because they produce strings in the grammar.
+Strings in syntatic grammar are expressions, in lexical grammar strings are tokens.
+Productios are written in BNF syntax.
+
+expression -> literal
+            | unary
+            | binary
+            | grouping;
+
+literal -> NUMBER | STRING | "true" | "false" | "nil" ;
+grouping -> "(" expression ")" ;
+unary -> ("-" | "!") expression ;
+binary -> expression operator expression ;
+operator -> "==" | "!=" | "<" | "<=" | ">" | ">=" | "+"  | "-"  | "*" | "/" ;
